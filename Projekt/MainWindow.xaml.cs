@@ -31,5 +31,12 @@ namespace Projekt
             this.Close();
             win.Show();
         }
+
+        private void tworzenie_Click(object sender, RoutedEventArgs e)
+        {
+            tworzeniakonta win = new tworzeniakonta();
+            this.Close();
+            win.Show();
+        }
     }
 }

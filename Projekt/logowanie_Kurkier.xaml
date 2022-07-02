@@ -1,0 +1,14 @@
+﻿<Window x:Class="Projekt.logowanie_Kurkier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt"
+        mc:Ignorable="d"
+        Title="logowanie_Kurkier" MinHeight="650" MinWidth="900" MaxHeight="650" MaxWidth="900">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\witul\source\repos\Projekt\Projekt\img\back.jpg"></ImageBrush>
+        </Grid.Background>
+    </Grid>
+</Window>

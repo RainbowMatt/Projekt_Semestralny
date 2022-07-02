@@ -5,52 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="logowanie" Height="450" Width="600">
-    <Grid Background="#3B3B3B">
+        Title="logowanie" MinHeight="650" MinWidth="900" MaxHeight="650" MaxWidth="900">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\witul\source\repos\Projekt\Projekt\img\back.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0 150">
+        <TextBlock
+            Grid.ColumnSpan="3"
+            Foreground="White"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            FontSize="50"
+            >
+            Wybierz opcje logowania
+        </TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0">
+            <TextBlock 
+                HorizontalAlignment="Center"
+                FontSize="25"
+                Margin="10"
+                Foreground="White">
+                Pracownik
+            </TextBlock>
             <Button 
                 BorderThickness="3"
                 BorderBrush="Black"
                 Background="#D1D1D1"
-                Width="100" 
-                Height="100" 
-                Margin="10">
+                Width="120" 
+                Height="120" 
+                Margin="20"
+                >
                 <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\ludzik.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0 150">
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0">
+            <TextBlock 
+                HorizontalAlignment="Center"
+                FontSize="25"
+                Margin="10"
+                Foreground="White">
+                Pracownik
+            </TextBlock>
             <Button 
                 BorderThickness="3"
                 BorderBrush="Black"
                 Background="#D1D1D1"
-                Width="100" 
-                Height="100" 
-                Margin="10">
+                Width="120" 
+                Height="120"
+                Margin="20"
+                >
                 <Image 
                     Source="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0 150">
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0">
+            <TextBlock 
+                HorizontalAlignment="Center"
+                FontSize="25"
+                Margin="10"
+                Foreground="White">
+                Pracownik
+            </TextBlock>
             <Button 
                 BorderThickness="3"
                 BorderBrush="Black"
                 Background="#D1D1D1"
-                Width="100" 
-                Height="100" 
-                Margin="10">
+                Width="120" 
+                Height="120" 
+                Margin="20"
+                >
                 <Image 
                     Source="C:\Users\witul\source\repos\Projekt\Projekt\img\delivery.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
+        <Button
+            BorderThickness="3"
+            BorderBrush="Black"
+            Width="100"
+            Height="25"
+            Name="powrot"
+            Grid.Column="3"
+            Grid.Row="3"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Margin="20"
+            Content="POWRÓT"
+            Click="powrot_Click"/>
+        
     </Grid>
 </Window>

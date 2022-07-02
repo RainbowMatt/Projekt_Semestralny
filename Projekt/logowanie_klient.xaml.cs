@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace Projekt
 {
     /// <summary>
-    /// Logika interakcji dla klasy logowanie.xaml
+    /// Logika interakcji dla klasy logowanie_klient.xaml
     /// </summary>
-    public partial class logowanie : Window
+    public partial class logowanie_klient : Window
     {
-        public logowanie()
+        public logowanie_klient()
         {
             InitializeComponent();
-        }
-
-        private void powrot_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow win = new MainWindow();
-            this.Close();
-            win.Show();
         }
     }
 }

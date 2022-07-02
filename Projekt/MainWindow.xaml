@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="Wypożyczalnia Filmów" Height="450" Width="600">
-    <Grid Background="#3B3B3B">
+        Title="Wypożyczalnia Filmów" MinHeight="650" MinWidth="900" MaxHeight="650" MaxWidth="900">
+   
+    <Grid>
+        
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\witul\source\repos\Projekt\Projekt\img\back.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -17,21 +22,21 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <TextBlock  
+                Foreground="White"
                 HorizontalAlignment="Center" 
                 TextAlignment="Center"
-                Width="600" 
-                Height="60" 
-                FontSize="40" 
-                Background="#3B3B3B" 
+                Width="800" 
+                Height="80" 
+                FontSize="60" 
                 Grid.Row="0" 
-                Margin="20 50 20 0 ">
+                Margin="20 120 20 0 ">
                 Witaj w naszej wypożyczalni
             </TextBlock>
             <TextBlock 
-                Background="#3B3B3B" 
+                Foreground="White"
                 TextAlignment="Center" 
-                Width="500" 
-                FontSize="20"
+                Width="800" 
+                FontSize="30"
                 Margin="20 30 20 0 ">
                 Proszę się zalogować lub utworzyć nowe konto
             </TextBlock>
@@ -42,23 +47,26 @@
                 Background="#D1D1D1"
             Name="logowanie"
             Click="logowanie_Click"
-            Width="200" 
-            Height="50" 
+            Width="310" 
+            Height="150" 
             Grid.Column="0" 
             Grid.Row="1" 
             Content="Zaloguj Się"
-            FontSize="30"
+            FontSize="50"
          />
         <Button 
             BorderThickness="3"
                 BorderBrush="Black"
                 Background="#D1D1D1"
-            Width="200" 
-            Height="50" 
+            Name="tworzenie"
+            Click="tworzenie_Click"
+            Width="310" 
+            Height="150" 
             Grid.Column="1" 
             Grid.Row="1" 
             Content="Utwórz konto"
-            FontSize="30"
+            FontSize="50"
             />
+        
     </Grid>
 </Window>

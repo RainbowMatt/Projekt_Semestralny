@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace Projekt
 {
     /// <summary>
-    /// Logika interakcji dla klasy logowanie.xaml
+    /// Logika interakcji dla klasy logowanie_Kurkier.xaml
     /// </summary>
-    public partial class logowanie : Window
+    public partial class logowanie_Kurkier : Window
     {
-        public logowanie()
+        public logowanie_Kurkier()
         {
             InitializeComponent();
-        }
-
-        private void powrot_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow win = new MainWindow();
-            this.Close();
-            win.Show();
         }
     }
 }

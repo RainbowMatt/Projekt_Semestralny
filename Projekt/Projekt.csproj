@@ -87,6 +87,15 @@
     <Compile Include="logowanie.xaml.cs">
       <DependentUpon>logowanie.xaml</DependentUpon>
     </Compile>
+    <Compile Include="logowanie_klient.xaml.cs">
+      <DependentUpon>logowanie_klient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="logowanie_Kurkier.xaml.cs">
+      <DependentUpon>logowanie_Kurkier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="logowanie_pracownik.xaml.cs">
+      <DependentUpon>logowanie_pracownik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pracownicy.cs">
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
@@ -100,6 +109,18 @@
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
     <Page Include="logowanie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="logowanie_klient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="logowanie_Kurkier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="logowanie_pracownik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
