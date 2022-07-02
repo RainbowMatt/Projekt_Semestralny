@@ -23,12 +23,49 @@ namespace Projekt
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+
         }
         private void powrot_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = new MainWindow();
             this.Close();
             win.Show();
+        }
+
+        private void dodawanikonta_Click(object sender, RoutedEventArgs e)
+        {
+            int nrdomu = 0;
+            if(Imietxt.Text == null || Nazwiskotxt.Text == null || Miejscowosctxt.Text == null || Ulicatxt.Text == null || NrDomunr.Text == null || NrTelefonutxt.Text == null || Emailtxt.Text == null || Hasłotxt.Password.ToString() == null)
+            {
+                wynik.Content = "Błedne dane";
+            }
+            if (int.TryParse(NrDomunr.Text, out nrdomu))
+            {
+                 Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
+
+                 Klienci klienci = new Klienci()
+                 {
+                        Imie = Imietxt.Text,
+                        Nazwisko = Nazwiskotxt.Text,
+                        Miejscowosc = Miejscowosctxt.Text,
+                        Ulica = Ulicatxt.Text,
+                        NrDomu = nrdomu,
+                        NrTelefonu = NrTelefonutxt.Text,
+                        Email = Emailtxt.Text,
+                        Hasło = Hasłotxt.Password.ToString()
+                 };
+                db.Klienci.Add(klienci);
+
+                MessageBox.Show("Konto zostało utworzone");
+                MainWindow win = new MainWindow();
+                win.Show();
+                this.Close();
+            }
+            else
+            {
+                wynik.Content = "Błedne dane";
+            }
+            
         }
     }
 }
