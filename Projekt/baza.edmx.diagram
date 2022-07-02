@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="637c72aa478947bc890c2c43be29462a" Name="Diagram1">
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Aktor" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Filmy" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Klienci" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Kurier" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Pracownicy" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Rezyser" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Wypozyczalnia_filmowModel.Wypozyczenia" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="Wypozyczalnia_filmowModel.fk_a" ManuallyRouted="false" />
+        <AssociationConnector Association="Wypozyczalnia_filmowModel.fk_f" ManuallyRouted="false" />
+        <AssociationConnector Association="Wypozyczalnia_filmowModel.fk_r" ManuallyRouted="false" />
+        <AssociationConnector Association="Wypozyczalnia_filmowModel.fk_k" ManuallyRouted="false" />
+        <AssociationConnector Association="Wypozyczalnia_filmowModel.fk_ku" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

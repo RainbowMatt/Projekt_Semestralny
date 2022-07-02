@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Wypozyczalnia_filmowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aktor">
+          <Key>
+            <PropertyRef Name="ID_Aktora" />
+          </Key>
+          <Property Name="ID_Aktora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Filmy">
+          <Key>
+            <PropertyRef Name="ID_Filmu" />
+          </Key>
+          <Property Name="ID_Filmu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_Rezysera" Type="int" Nullable="false" />
+          <Property Name="ID_Aktora" Type="int" Nullable="false" />
+          <Property Name="Gatunek" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Czas_trwania" Type="int" Nullable="false" />
+          <Property Name="Stan" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="ID_Klienta" />
+          </Key>
+          <Property Name="ID_Klienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Hasło" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NrTelefonu" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Miejscowosc" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ulica" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NrDomu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kurier">
+          <Key>
+            <PropertyRef Name="ID_Kuriera" />
+          </Key>
+          <Property Name="ID_Kuriera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Hasło" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="ID_Pracownika" />
+          </Key>
+          <Property Name="ID_Pracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Hasło" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rezyser">
+          <Key>
+            <PropertyRef Name="ID_Rezysera" />
+          </Key>
+          <Property Name="ID_Rezysera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wypozyczenia">
+          <Key>
+            <PropertyRef Name="ID_Wypozyczenia" />
+          </Key>
+          <Property Name="ID_Wypozyczenia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Filmu" Type="int" Nullable="false" />
+          <Property Name="ID_Klienta" Type="int" Nullable="false" />
+          <Property Name="ID_Kuriera" Type="int" Nullable="false" />
+          <Property Name="DataWypozyczenia" Type="date" Nullable="false" />
+          <Property Name="DataZwtotu" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="fk_a">
+          <End Role="Aktor" Type="Self.Aktor" Multiplicity="1" />
+          <End Role="Filmy" Type="Self.Filmy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktor">
+              <PropertyRef Name="ID_Aktora" />
+            </Principal>
+            <Dependent Role="Filmy">
+              <PropertyRef Name="ID_Aktora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_f">
+          <End Role="Filmy" Type="Self.Filmy" Multiplicity="1" />
+          <End Role="Wypozyczenia" Type="Self.Wypozyczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmy">
+              <PropertyRef Name="ID_Filmu" />
+            </Principal>
+            <Dependent Role="Wypozyczenia">
+              <PropertyRef Name="ID_Filmu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_k">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Wypozyczenia" Type="Self.Wypozyczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="ID_Klienta" />
+            </Principal>
+            <Dependent Role="Wypozyczenia">
+              <PropertyRef Name="ID_Klienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ku">
+          <End Role="Kurier" Type="Self.Kurier" Multiplicity="1" />
+          <End Role="Wypozyczenia" Type="Self.Wypozyczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurier">
+              <PropertyRef Name="ID_Kuriera" />
+            </Principal>
+            <Dependent Role="Wypozyczenia">
+              <PropertyRef Name="ID_Kuriera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_r">
+          <End Role="Rezyser" Type="Self.Rezyser" Multiplicity="1" />
+          <End Role="Filmy" Type="Self.Filmy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezyser">
+              <PropertyRef Name="ID_Rezysera" />
+            </Principal>
+            <Dependent Role="Filmy">
+              <PropertyRef Name="ID_Rezysera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Wypozyczalnia_filmowModelStoreContainer">
+          <EntitySet Name="Aktor" EntityType="Self.Aktor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filmy" EntityType="Self.Filmy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kurier" EntityType="Self.Kurier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezyser" EntityType="Self.Rezyser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wypozyczenia" EntityType="Self.Wypozyczenia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_a" Association="Self.fk_a">
+            <End Role="Aktor" EntitySet="Aktor" />
+            <End Role="Filmy" EntitySet="Filmy" />
+          </AssociationSet>
+          <AssociationSet Name="fk_f" Association="Self.fk_f">
+            <End Role="Filmy" EntitySet="Filmy" />
+            <End Role="Wypozyczenia" EntitySet="Wypozyczenia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_k" Association="Self.fk_k">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Wypozyczenia" EntitySet="Wypozyczenia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ku" Association="Self.fk_ku">
+            <End Role="Kurier" EntitySet="Kurier" />
+            <End Role="Wypozyczenia" EntitySet="Wypozyczenia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_r" Association="Self.fk_r">
+            <End Role="Rezyser" EntitySet="Rezyser" />
+            <End Role="Filmy" EntitySet="Filmy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Wypozyczalnia_filmowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aktor">
+          <Key>
+            <PropertyRef Name="ID_Aktora" />
+          </Key>
+          <Property Name="ID_Aktora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Filmy" Relationship="Self.fk_a" FromRole="Aktor" ToRole="Filmy" />
+        </EntityType>
+        <EntityType Name="Filmy">
+          <Key>
+            <PropertyRef Name="ID_Filmu" />
+          </Key>
+          <Property Name="ID_Filmu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Rezysera" Type="Int32" Nullable="false" />
+          <Property Name="ID_Aktora" Type="Int32" Nullable="false" />
+          <Property Name="Gatunek" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Czas_trwania" Type="Int32" Nullable="false" />
+          <Property Name="Stan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Aktor" Relationship="Self.fk_a" FromRole="Filmy" ToRole="Aktor" />
+          <NavigationProperty Name="Wypozyczenia" Relationship="Self.fk_f" FromRole="Filmy" ToRole="Wypozyczenia" />
+          <NavigationProperty Name="Rezyser" Relationship="Self.fk_r" FromRole="Filmy" ToRole="Rezyser" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="ID_Klienta" />
+          </Key>
+          <Property Name="ID_Klienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hasło" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrTelefonu" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrDomu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Wypozyczenia" Relationship="Self.fk_k" FromRole="Klienci" ToRole="Wypozyczenia" />
+        </EntityType>
+        <EntityType Name="Kurier">
+          <Key>
+            <PropertyRef Name="ID_Kuriera" />
+          </Key>
+          <Property Name="ID_Kuriera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hasło" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Wypozyczenia" Relationship="Self.fk_ku" FromRole="Kurier" ToRole="Wypozyczenia" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="ID_Pracownika" />
+          </Key>
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hasło" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rezyser">
+          <Key>
+            <PropertyRef Name="ID_Rezysera" />
+          </Key>
+          <Property Name="ID_Rezysera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Filmy" Relationship="Self.fk_r" FromRole="Rezyser" ToRole="Filmy" />
+        </EntityType>
+        <EntityType Name="Wypozyczenia">
+          <Key>
+            <PropertyRef Name="ID_Wypozyczenia" />
+          </Key>
+          <Property Name="ID_Wypozyczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Filmu" Type="Int32" Nullable="false" />
+          <Property Name="ID_Klienta" Type="Int32" Nullable="false" />
+          <Property Name="ID_Kuriera" Type="Int32" Nullable="false" />
+          <Property Name="DataWypozyczenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataZwtotu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Filmy" Relationship="Self.fk_f" FromRole="Wypozyczenia" ToRole="Filmy" />
+          <NavigationProperty Name="Klienci" Relationship="Self.fk_k" FromRole="Wypozyczenia" ToRole="Klienci" />
+          <NavigationProperty Name="Kurier" Relationship="Self.fk_ku" FromRole="Wypozyczenia" ToRole="Kurier" />
+        </EntityType>
+        <Association Name="fk_a">
+          <End Role="Aktor" Type="Self.Aktor" Multiplicity="1" />
+          <End Role="Filmy" Type="Self.Filmy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktor">
+              <PropertyRef Name="ID_Aktora" />
+            </Principal>
+            <Dependent Role="Filmy">
+              <PropertyRef Name="ID_Aktora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_f">
+          <End Role="Filmy" Type="Self.Filmy" Multiplicity="1" />
+          <End Role="Wypozyczenia" Type="Self.Wypozyczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmy">
+              <PropertyRef Name="ID_Filmu" />
+            </Principal>
+            <Dependent Role="Wypozyczenia">
+              <PropertyRef Name="ID_Filmu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_r">
+          <End Role="Rezyser" Type="Self.Rezyser" Multiplicity="1" />
+          <End Role="Filmy" Type="Self.Filmy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezyser">
+              <PropertyRef Name="ID_Rezysera" />
+            </Principal>
+            <Dependent Role="Filmy">
+              <PropertyRef Name="ID_Rezysera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_k">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Wypozyczenia" Type="Self.Wypozyczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="ID_Klienta" />
+            </Principal>
+            <Dependent Role="Wypozyczenia">
+              <PropertyRef Name="ID_Klienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ku">
+          <End Role="Kurier" Type="Self.Kurier" Multiplicity="1" />
+          <End Role="Wypozyczenia" Type="Self.Wypozyczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurier">
+              <PropertyRef Name="ID_Kuriera" />
+            </Principal>
+            <Dependent Role="Wypozyczenia">
+              <PropertyRef Name="ID_Kuriera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Wypozyczalnia_filmowEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aktor" EntityType="Self.Aktor" />
+          <EntitySet Name="Filmy" EntityType="Self.Filmy" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" />
+          <EntitySet Name="Kurier" EntityType="Self.Kurier" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+          <EntitySet Name="Rezyser" EntityType="Self.Rezyser" />
+          <EntitySet Name="Wypozyczenia" EntityType="Self.Wypozyczenia" />
+          <AssociationSet Name="fk_a" Association="Self.fk_a">
+            <End Role="Aktor" EntitySet="Aktor" />
+            <End Role="Filmy" EntitySet="Filmy" />
+          </AssociationSet>
+          <AssociationSet Name="fk_f" Association="Self.fk_f">
+            <End Role="Filmy" EntitySet="Filmy" />
+            <End Role="Wypozyczenia" EntitySet="Wypozyczenia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_r" Association="Self.fk_r">
+            <End Role="Rezyser" EntitySet="Rezyser" />
+            <End Role="Filmy" EntitySet="Filmy" />
+          </AssociationSet>
+          <AssociationSet Name="fk_k" Association="Self.fk_k">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Wypozyczenia" EntitySet="Wypozyczenia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ku" Association="Self.fk_ku">
+            <End Role="Kurier" EntitySet="Kurier" />
+            <End Role="Wypozyczenia" EntitySet="Wypozyczenia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Wypozyczalnia_filmowModelStoreContainer" CdmEntityContainer="Wypozyczalnia_filmowEntities1">
+          <EntitySetMapping Name="Aktor">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Aktor">
+              <MappingFragment StoreEntitySet="Aktor">
+                <ScalarProperty Name="ID_Aktora" ColumnName="ID_Aktora" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filmy">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Filmy">
+              <MappingFragment StoreEntitySet="Filmy">
+                <ScalarProperty Name="ID_Filmu" ColumnName="ID_Filmu" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="ID_Rezysera" ColumnName="ID_Rezysera" />
+                <ScalarProperty Name="ID_Aktora" ColumnName="ID_Aktora" />
+                <ScalarProperty Name="Gatunek" ColumnName="Gatunek" />
+                <ScalarProperty Name="Czas_trwania" ColumnName="Czas_trwania" />
+                <ScalarProperty Name="Stan" ColumnName="Stan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klienci">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Klienci">
+              <MappingFragment StoreEntitySet="Klienci">
+                <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Hasło" ColumnName="Hasło" />
+                <ScalarProperty Name="NrTelefonu" ColumnName="NrTelefonu" />
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kurier">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Kurier">
+              <MappingFragment StoreEntitySet="Kurier">
+                <ScalarProperty Name="ID_Kuriera" ColumnName="ID_Kuriera" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Hasło" ColumnName="Hasło" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Pracownicy">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Hasło" ColumnName="Hasło" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezyser">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Rezyser">
+              <MappingFragment StoreEntitySet="Rezyser">
+                <ScalarProperty Name="ID_Rezysera" ColumnName="ID_Rezysera" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wypozyczenia">
+            <EntityTypeMapping TypeName="Wypozyczalnia_filmowModel.Wypozyczenia">
+              <MappingFragment StoreEntitySet="Wypozyczenia">
+                <ScalarProperty Name="ID_Wypozyczenia" ColumnName="ID_Wypozyczenia" />
+                <ScalarProperty Name="ID_Filmu" ColumnName="ID_Filmu" />
+                <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
+                <ScalarProperty Name="ID_Kuriera" ColumnName="ID_Kuriera" />
+                <ScalarProperty Name="DataWypozyczenia" ColumnName="DataWypozyczenia" />
+                <ScalarProperty Name="DataZwtotu" ColumnName="DataZwtotu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

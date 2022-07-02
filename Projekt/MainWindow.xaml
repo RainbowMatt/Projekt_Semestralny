@@ -1,0 +1,29 @@
+﻿<Window x:Class="Projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock  HorizontalAlignment="Center" TextAlignment="Center" Width="400" Height="50" FontSize="25" Background="Gray" Grid.Row="0" Margin="20">
+                Witaj w naszej wypożyczalni
+            </TextBlock>
+            <TextBlock Background="Gray" TextAlignment="Center" Width="300" FontSize="14">
+                Proszę się zalogować lub utworzyć nowe konto
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Button Width="100" Height="20" Background=""/>
+        </StackPanel>
+    </Grid>
+</Window>
