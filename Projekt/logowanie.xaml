@@ -19,29 +19,17 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
             <Button Width="60" Height="60" Margin="10">
-                <Image Width="40" Height="40" Margin="10">
-                    <Image.Source>
-                        <BitmapImage UriSource="C:\Users\witul\source\repos\Projekt\Projekt\img\ludzik.png"></BitmapImage>
-                    </Image.Source>
-                </Image>
+                <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\ludzik.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1">
             <Button Width="60" Height="60" Margin="10">
-                <Image Width="40" Height="40" Margin="10">
-                    <Image.Source>
-                        <BitmapImage UriSource="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png"></BitmapImage>
-                    </Image.Source>
-                </Image>
+                <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="2">
             <Button Width="60" Height="60" Margin="10">
-                <Image Width="40" Height="40" Margin="10">
-                    <Image.Source>
-                        <BitmapImage UriSource="C:\Users\witul\source\repos\Projekt\Projekt\img\delivery.png"></BitmapImage>
-                    </Image.Source>
-                </Image>
+                <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\delivery.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
     </Grid>

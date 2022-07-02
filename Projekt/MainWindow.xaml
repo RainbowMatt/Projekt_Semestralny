@@ -23,7 +23,8 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Width="100" Height="20" Background=""/>
+            <Button Width="100" Height="20" />
+            <Button Width="100" Height="20"/>
         </StackPanel>
     </Grid>
 </Window>
