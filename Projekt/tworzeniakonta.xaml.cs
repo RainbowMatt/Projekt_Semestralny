@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Projekt
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy tworzeniakonta.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class tworzeniakonta : Window
     {
-        public MainWindow()
+        public tworzeniakonta()
         {
             InitializeComponent();
-        }
-
-        private void logowanie_Click(object sender, RoutedEventArgs e)
-        {
-            logowanie win = new logowanie();
-            this.Close();
-            win.Show();
         }
     }
 }

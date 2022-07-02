@@ -5,26 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600">
-    <Grid Background="Gray">
+        Title="Wypożyczalnia Filmów" Height="450" Width="600">
+    <Grid Background="#3B3B3B">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <TextBlock  HorizontalAlignment="Center" TextAlignment="Center" Width="400" Height="50" FontSize="25" Background="Gray" Grid.Row="0" Margin="20">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <TextBlock  
+                HorizontalAlignment="Center" 
+                TextAlignment="Center"
+                Width="600" 
+                Height="60" 
+                FontSize="40" 
+                Background="#3B3B3B" 
+                Grid.Row="0" 
+                Margin="20 50 20 0 ">
                 Witaj w naszej wypożyczalni
             </TextBlock>
-            <TextBlock Background="Gray" TextAlignment="Center" Width="300" FontSize="14">
+            <TextBlock 
+                Background="#3B3B3B" 
+                TextAlignment="Center" 
+                Width="500" 
+                FontSize="20"
+                Margin="20 30 20 0 ">
                 Proszę się zalogować lub utworzyć nowe konto
             </TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Button Width="100" Height="20" />
-            <Button Width="100" Height="20"/>
-        </StackPanel>
+        <Button 
+            BorderThickness="3"
+                BorderBrush="Black"
+                Background="#D1D1D1"
+            Name="logowanie"
+            Click="logowanie_Click"
+            Width="200" 
+            Height="50" 
+            Grid.Column="0" 
+            Grid.Row="1" 
+            Content="Zaloguj Się"
+            FontSize="30"
+         />
+        <Button 
+            BorderThickness="3"
+                BorderBrush="Black"
+                Background="#D1D1D1"
+            Width="200" 
+            Height="50" 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Content="Utwórz konto"
+            FontSize="30"
+            />
     </Grid>
 </Window>

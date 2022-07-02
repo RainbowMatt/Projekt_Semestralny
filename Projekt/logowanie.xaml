@@ -5,31 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="logowanie" Height="450" Width="800">
-    <Grid Background="Gray">
+        Title="logowanie" Height="450" Width="600">
+    <Grid Background="#3B3B3B">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <Button Width="60" Height="60" Margin="10">
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0 150">
+            <Button 
+                BorderThickness="3"
+                BorderBrush="Black"
+                Background="#D1D1D1"
+                Width="100" 
+                Height="100" 
+                Margin="10">
                 <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\ludzik.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <Button Width="60" Height="60" Margin="10">
-                <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png" Width="40" Height="40"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0 150">
+            <Button 
+                BorderThickness="3"
+                BorderBrush="Black"
+                Background="#D1D1D1"
+                Width="100" 
+                Height="100" 
+                Margin="10">
+                <Image 
+                    Source="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="2">
-            <Button Width="60" Height="60" Margin="10">
-                <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\delivery.png" Width="40" Height="40"/>
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0 150">
+            <Button 
+                BorderThickness="3"
+                BorderBrush="Black"
+                Background="#D1D1D1"
+                Width="100" 
+                Height="100" 
+                Margin="10">
+                <Image 
+                    Source="C:\Users\witul\source\repos\Projekt\Projekt\img\delivery.png" Width="40" Height="40"/>
             </Button>
         </StackPanel>
     </Grid>
