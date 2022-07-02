@@ -21,7 +21,14 @@ namespace Projekt
     {
         public tworzeniakonta()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+        }
+        private void powrot_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow();
+            this.Close();
+            win.Show();
         }
     }
 }

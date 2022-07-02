@@ -21,7 +21,21 @@ namespace Projekt
     {
         public logowanie_klient()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+        }
+        private void powrot_Click(object sender, RoutedEventArgs e)
+        {
+            logowanie win = new logowanie();
+            this.Close();
+            win.Show();
+        }
+
+        private void utworz_Click(object sender, RoutedEventArgs e)
+        {
+            tworzeniakonta win = new tworzeniakonta();
+            this.Close();
+            win.Show();
         }
     }
 }

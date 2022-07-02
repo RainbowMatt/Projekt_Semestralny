@@ -22,9 +22,16 @@ namespace Projekt
     {
         public MainWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
+            this.Left = desktopWorkingArea.Right - this.Width;
+            this.Top = desktopWorkingArea.Bottom - this.Height;
+        }
         private void logowanie_Click(object sender, RoutedEventArgs e)
         {
             logowanie win = new logowanie();

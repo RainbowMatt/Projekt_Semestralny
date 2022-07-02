@@ -10,5 +10,82 @@
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\witul\source\repos\Projekt\Projekt\img\back.jpg"></ImageBrush>
         </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="360"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock 
+            Grid.ColumnSpan="2"
+            Foreground="White"
+            FontSize="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Margin="0 0 0 10">
+            Prosze podać email i hasło
+        </TextBlock>
+        <Label 
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="Email:"
+            FontSize="25"
+            Foreground="#DBD9D9"
+            HorizontalAlignment="Left"
+            Margin="10,9,0,61" Grid.RowSpan="2"/>
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="0"
+            Height="25"
+            x:Name="email_proacownik"
+            VerticalContentAlignment="Top"
+            Width="150" 
+            Margin="112,16,210,319"
+            />
+        <Label 
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="Hasło:"
+            FontSize="25"
+            Foreground="#DBD9D9"
+            HorizontalAlignment="Left"
+            Margin="10,60,0,-10" Grid.RowSpan="2"/>
+        <PasswordBox
+            Grid.Row="1"
+            Grid.Column="0"
+            Height="25"
+            x:Name="Haslo_pracownik"
+            VerticalContentAlignment="Top"
+            Width="150" 
+            Margin="112,67,210,268"
+            />
+        <Button 
+            Grid.Column="0"
+            Grid.Row="1"
+            Height="30"
+            Width="100" 
+            Margin="10,103,362,217"
+            Content="Zaloguj Się"
+            FontSize="15"/>
+        <Image 
+            Grid.Column="1"
+            Grid.Row="1"
+            Source="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png"/>
+        <Button
+            BorderThickness="3"
+            BorderBrush="Black"
+            Width="100"
+            Height="25"
+            Name="powrot"
+            Grid.Column="2"
+            Grid.Row="3"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Margin="20"
+            Content="POWRÓT"
+            Click="powrot_Click"/>
     </Grid>
 </Window>

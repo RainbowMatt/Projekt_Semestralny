@@ -35,7 +35,7 @@
                 FontSize="25"
                 Margin="10"
                 Foreground="White">
-                Pracownik
+                Klient
             </TextBlock>
             <Button 
                 BorderThickness="3"
@@ -44,6 +44,8 @@
                 Width="120" 
                 Height="120" 
                 Margin="20"
+                Name="klient"
+                Click="klient_Click"
                 >
                 <Image Source="C:\Users\witul\source\repos\Projekt\Projekt\img\ludzik.png" Width="40" Height="40"/>
             </Button>
@@ -63,6 +65,8 @@
                 Width="120" 
                 Height="120"
                 Margin="20"
+                Name="pracownicy"
+                Click="pracownicy_Click"
                 >
                 <Image 
                     Source="C:\Users\witul\source\repos\Projekt\Projekt\img\worker.png" Width="40" Height="40"/>
@@ -74,7 +78,7 @@
                 FontSize="25"
                 Margin="10"
                 Foreground="White">
-                Pracownik
+                Kurier
             </TextBlock>
             <Button 
                 BorderThickness="3"
@@ -83,6 +87,8 @@
                 Width="120" 
                 Height="120" 
                 Margin="20"
+                Name="kurier"
+                Click="kurier_click"
                 >
                 <Image 
                     Source="C:\Users\witul\source\repos\Projekt\Projekt\img\delivery.png" Width="40" Height="40"/>

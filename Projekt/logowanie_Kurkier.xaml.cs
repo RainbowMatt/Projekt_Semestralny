@@ -21,7 +21,15 @@ namespace Projekt
     {
         public logowanie_Kurkier()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
+        private void powrot_Click(object sender, RoutedEventArgs e)
+        {
+            logowanie win = new logowanie();
+            this.Close();
+            win.Show();
+        }
     }
+
 }
