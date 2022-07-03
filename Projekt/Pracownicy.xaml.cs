@@ -25,11 +25,27 @@ namespace Projekt
             InitializeComponent();
             Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
             var wypo = from f in db.Wypozyczenia
-                       select f;
+                       select new
+                       {
+                           f.ID_Wypozyczenia,
+                           f.ID_Klienta,
+                           f.ID_Filmu,
+                           f.DataWypozyczenia,
+                           f.DataZwtotu
+                       };
+           
             var klienci = from f in db.Klienci
                        select f;
             var filmy = from f in db.Filmy
-                       select f;
+                       select new
+                       {
+                           f.ID_Filmu,
+                           f.Tytul,
+                           f.Gatunek,
+                           f.Czas_trwania,
+                           f.Stan
+
+                       };
             this.klienci.ItemsSource = klienci.ToList();
             this.wypo.ItemsSource = wypo.ToList();
             this.filmy.ItemsSource = filmy.ToList();
