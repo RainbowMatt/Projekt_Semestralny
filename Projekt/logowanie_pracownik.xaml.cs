@@ -30,6 +30,21 @@ namespace Projekt
             this.Close();
             win.Show();
         }
+
+        private void logowanie_Click(object sender, RoutedEventArgs e)
+        {
+            Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
+            var password = from Pracownicy in db.Pracownicy
+                           select Pracownicy;
+            foreach(var pw in password)
+            {
+                if(pw.Email == emaillog.Text)
+                {
+                    if(pw.Hasło == haslolog.Password.ToString())
+                        MessageBox.Show("zalogowany");
+                }
+            }
+        }
     }
 
 }

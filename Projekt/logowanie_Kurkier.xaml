@@ -33,34 +33,44 @@
             Grid.Column="0"
             Content="ID:"
             FontSize="25"
+            Height="50"
             Foreground="#DBD9D9"
+            VerticalAlignment="Top"
             HorizontalAlignment="Left"
-            Margin="10,11,0,59" Grid.RowSpan="2"/>
+            Margin="10,0,0,0"/>
         <TextBox
             Grid.Row="1"
             Grid.Column="0"
             Height="25"
-            x:Name="Id_kurier"
-            VerticalContentAlignment="Top"
+            x:Name="idlog"
+            MaxLength="1"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Center"
             Width="150" 
-            Margin="112,18,210,317"
+            Margin="170,10,0,0"
             />
         <Label 
             Grid.Row="1"
             Grid.Column="0"
             Content="Hasło:"
             FontSize="25"
+            Height="50"
             Foreground="#DBD9D9"
+            VerticalAlignment="Top"
             HorizontalAlignment="Left"
-            Margin="10,59,0,-9" Grid.RowSpan="2"/>
+            Margin="10,40,0,0"/>
         <PasswordBox
             Grid.Row="1"
             Grid.Column="0"
             Height="25"
-            x:Name="Haslo_kurier"
-            VerticalContentAlignment="Top"
+            x:Name="haslolog"
+            MaxLength="20"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Center"
             Width="150" 
-            Margin="112,66,210,269"
+            Margin="170,50,0,0"
             />
         <Button 
             Grid.Column="0"
@@ -69,6 +79,8 @@
             Width="100" 
             Margin="10,103,362,217"
             Content="Zaloguj Się"
+            Name="logowanie"
+            Click="logowanie_Click"
             FontSize="15"/>
         <Image 
             Grid.Column="1"

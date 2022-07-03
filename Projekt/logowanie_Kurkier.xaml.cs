@@ -30,6 +30,29 @@ namespace Projekt
             this.Close();
             win.Show();
         }
+
+        private void logowanie_Click(object sender, RoutedEventArgs e)
+        {
+            int idnr = 0;
+            if (int.TryParse(idlog.Text, out idnr))
+            {
+                Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
+                var password = from Kurier in db.Kurier
+                               select Kurier;
+                foreach (var pw in password)
+                {
+                    if (pw.ID_Kuriera == idnr)
+                    {
+                        if (pw.Hasło == haslolog.Password.ToString())
+                            MessageBox.Show("zalogowany");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("bledne dane");
+            }
+        }
     }
 
 }

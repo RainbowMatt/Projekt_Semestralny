@@ -37,7 +37,7 @@ namespace Projekt
             int nrdomu = 0;
             if(Imietxt.Text == null || Nazwiskotxt.Text == null || Miejscowosctxt.Text == null || Ulicatxt.Text == null || NrDomunr.Text == null || NrTelefonutxt.Text == null || Emailtxt.Text == null || Hasłotxt.Password.ToString() == null)
             {
-                wynik.Content = "Błedne dane";
+                wynik.Content = "Brak potrzebnych danych";
             }
             if (int.TryParse(NrDomunr.Text, out nrdomu))
             {
