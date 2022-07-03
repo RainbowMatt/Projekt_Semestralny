@@ -26,7 +26,13 @@ namespace Projekt
             Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
             var wypo = from f in db.Wypozyczenia
                        select f;
+            var klienci = from f in db.Klienci
+                       select f;
+            var filmy = from f in db.Filmy
+                       select f;
+            this.klienci.ItemsSource = klienci.ToList();
             this.wypo.ItemsSource = wypo.ToList();
+            this.filmy.ItemsSource = filmy.ToList();
         }
         private void wyloguj_Click(object sender, RoutedEventArgs e)
         {
