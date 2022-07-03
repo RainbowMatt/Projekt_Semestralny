@@ -47,7 +47,11 @@ namespace Projekt
                 if (pw.Email == emaillog.Text)
                 {
                     if (pw.Hasło == haslolog.Password.ToString())
-                        MessageBox.Show("zalogowany");
+                    {
+                        Klenci klenci = new Klenci();
+                        klenci.Show();
+                        this.Close();
+                    }
                 }
             }
         }

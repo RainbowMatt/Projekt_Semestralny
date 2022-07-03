@@ -78,11 +78,17 @@
     <Compile Include="Filmy.cs">
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="Klenci.xaml.cs">
+      <DependentUpon>Klenci.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Klienci.cs">
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
     <Compile Include="Kurier.cs">
       <DependentUpon>baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kurierzy.xaml.cs">
+      <DependentUpon>Kurierzy.xaml</DependentUpon>
     </Compile>
     <Compile Include="logowanie.xaml.cs">
       <DependentUpon>logowanie.xaml</DependentUpon>
@@ -99,6 +105,9 @@
     <Compile Include="Pracownicy.cs">
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pracownicy.xaml.cs">
+      <DependentUpon>Pracownicy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Rezyser.cs">
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
@@ -108,6 +117,14 @@
     <Compile Include="Wypozyczenia.cs">
       <DependentUpon>baza.tt</DependentUpon>
     </Compile>
+    <Page Include="Klenci.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kurierzy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="logowanie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +163,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pracownicy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="tworzeniakonta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

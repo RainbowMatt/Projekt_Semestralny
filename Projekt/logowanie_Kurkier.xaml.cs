@@ -44,7 +44,11 @@ namespace Projekt
                     if (pw.ID_Kuriera == idnr)
                     {
                         if (pw.Hasło == haslolog.Password.ToString())
-                            MessageBox.Show("zalogowany");
+                        {
+                            Kurierzy kurierzy = new Kurierzy();
+                            this.Close();
+                            kurierzy.Show();
+                        }
                     }
                 }
             }

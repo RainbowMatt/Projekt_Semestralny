@@ -40,8 +40,12 @@ namespace Projekt
             {
                 if(pw.Email == emaillog.Text)
                 {
-                    if(pw.Hasło == haslolog.Password.ToString())
-                        MessageBox.Show("zalogowany");
+                    if (pw.Hasło == haslolog.Password.ToString())
+                    {
+                        Pracownicy pracownicy = new Pracownicy();
+                        this.Close();
+                        pracownicy.Show();
+                    }
                 }
             }
         }

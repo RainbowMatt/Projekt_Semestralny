@@ -81,6 +81,7 @@
             Width="100" 
             Margin="10,103,362,217"
             Content="Zaloguj Się"
+            Click="logowanie_Click"
             FontSize="15"/>
         <Button 
             Grid.Column="0"
