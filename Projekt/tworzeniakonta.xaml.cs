@@ -35,16 +35,18 @@ namespace Projekt
         private void dodawanikonta_Click(object sender, RoutedEventArgs e)
         {
             int nrdomu = 0;
-            if(Imietxt.Text == null || Nazwiskotxt.Text == null || Miejscowosctxt.Text == null || Ulicatxt.Text == null || NrDomunr.Text == null || NrTelefonutxt.Text == null || Emailtxt.Text == null || Hasłotxt.Password.ToString() == null)
+            if (Imietxt.Text == "" || Nazwiskotxt.Text == "" || Miejscowosctxt.Text == "" || Ulicatxt.Text == "" || NrDomunr.Text == "" || NrTelefonutxt.Text == "" || Emailtxt.Text == "" || Hasłotxt.Password.ToString() == "")
             {
                 wynik.Content = "Brak potrzebnych danych";
             }
-            if (int.TryParse(NrDomunr.Text, out nrdomu))
+            else
             {
-                 Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
+                if (int.TryParse(NrDomunr.Text, out nrdomu))
+                {
+                    Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
 
-                 Klienci klienci = new Klienci()
-                 {
+                    Klienci klienci = new Klienci()
+                    {
                         Imie = Imietxt.Text,
                         Nazwisko = Nazwiskotxt.Text,
                         Miejscowosc = Miejscowosctxt.Text,
@@ -53,18 +55,20 @@ namespace Projekt
                         NrTelefonu = NrTelefonutxt.Text,
                         Email = Emailtxt.Text,
                         Hasło = Hasłotxt.Password.ToString()
-                 };
-                db.Klienci.Add(klienci);
+                    };
+                    db.Klienci.Add(klienci);
+                    db.SaveChanges();
 
-                MessageBox.Show("Konto zostało utworzone");
-                MainWindow win = new MainWindow();
-                win.Show();
-                this.Close();
-            }
-            else
-            {
-                wynik.Content = "Błedne dane";
-            }
+                    MessageBox.Show("Konto zostało utworzone");
+                    MainWindow win = new MainWindow();
+                    win.Show();
+                    this.Close();
+                }
+                else
+                {
+                    wynik.Content = "Błedne dane";
+                }
+            }               
             
         }
     }

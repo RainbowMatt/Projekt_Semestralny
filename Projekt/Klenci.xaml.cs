@@ -27,8 +27,9 @@ namespace Projekt
             Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
             var film = from f in db.Filmy
                        where f.Stan == "Na magazynie"
-                       select f.ID_Filmu;
+                       select f;
             this.filmy.ItemsSource = film.ToList();
+            MessageBox.Show(logowanie_klient.mail);
         }
         private void wyloguj_Click(object sender, RoutedEventArgs e)
         {

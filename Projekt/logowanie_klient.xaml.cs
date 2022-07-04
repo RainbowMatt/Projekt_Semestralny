@@ -17,8 +17,10 @@ namespace Projekt
     /// <summary>
     /// Logika interakcji dla klasy logowanie_klient.xaml
     /// </summary>
-    public partial class logowanie_klient : Window
+    
+        public partial class logowanie_klient : Window
     {
+        public static string mail { get; private set; }
         public logowanie_klient()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -48,6 +50,7 @@ namespace Projekt
                 {
                     if (pw.Hasło == haslolog.Password.ToString())
                     {
+                        mail = emaillog.Text;
                         Klenci klenci = new Klenci();
                         klenci.Show();
                         this.Close();
