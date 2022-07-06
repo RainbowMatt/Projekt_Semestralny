@@ -29,7 +29,6 @@ namespace Projekt
                        where f.Stan == "Na magazynie"
                        select f;
             this.filmy.ItemsSource = film.ToList();
-            MessageBox.Show(logowanie_klient.mail);
         }
         private void wyloguj_Click(object sender, RoutedEventArgs e)
         {

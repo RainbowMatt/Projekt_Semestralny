@@ -19,6 +19,7 @@ namespace Projekt
     /// </summary>
     public partial class logowanie_Kurkier : Window
     {
+        public static int id_kurk { get; private set; }
         public logowanie_Kurkier()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -45,6 +46,7 @@ namespace Projekt
                     {
                         if (pw.Hasło == haslolog.Password.ToString())
                         {
+                            id_kurk=pw.ID_Kuriera;
                             Kurierzy kurierzy = new Kurierzy();
                             this.Close();
                             kurierzy.Show();

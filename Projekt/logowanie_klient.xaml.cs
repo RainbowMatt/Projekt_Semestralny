@@ -20,7 +20,7 @@ namespace Projekt
     
         public partial class logowanie_klient : Window
     {
-        public static string mail { get; private set; }
+        public static int mail { get; private set; }
         public logowanie_klient()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -50,7 +50,7 @@ namespace Projekt
                 {
                     if (pw.Hasło == haslolog.Password.ToString())
                     {
-                        mail = emaillog.Text;
+                        mail = pw.ID_Klienta;
                         Klenci klenci = new Klenci();
                         klenci.Show();
                         this.Close();
