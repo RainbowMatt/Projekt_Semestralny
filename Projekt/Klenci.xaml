@@ -11,15 +11,41 @@
             <ImageBrush ImageSource="C:\Users\witul\source\repos\Projekt\Projekt\img\back.jpg"></ImageBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
             <RowDefinition Height="350"></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid
+        <StackPanel 
+            Grid.Row="1" 
+            Margin="10">
+
+        </StackPanel>
+        <TabControl
+            Grid.Row="2">
+            <TabItem Header="Do wypożyczenia">
+                <StackPanel>
+                    <Label
+                Content="Proszę podać numer ID filmu który chce Pan/Pani wypożyczyć"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                FontSize="20"/>
+                    <TextBox
+                        Width="30"
+                        MaxLength="2"
+                        x:Name="idfilm"
+                        HorizontalAlignment="Center"/>
+                    <Button
+                        Width="70"
+                        Height="20"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Content="Wypożycz"
+                        Click="Wypozycz_Click"
+                        Margin="0 0 20 0"/>
+                    <DataGrid
             Grid.Row="1"
             x:Name="filmy"
             Margin="50"></DataGrid>
-        <Button
+                    <Button
             Grid.Row="2"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
@@ -27,5 +53,25 @@
             Content="Wyloguj Się"
             Name="wyloguj"
             Click="wyloguj_Click"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Wypożyczone">
+                <StackPanel>
+                    
+                    <DataGrid
+            Grid.Row="1"
+            x:Name="wypożyczenia"
+            Margin="50"></DataGrid>
+                    <Button
+            Grid.Row="2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="20"
+            Content="Wyloguj Się"
+            Click="wyloguj_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>
