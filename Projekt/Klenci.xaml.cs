@@ -38,6 +38,7 @@ namespace Projekt
                            f.Czas_trwania
                        };
             var wypozycznia = from w in db.Wypozyczenia
+                              where w.DataZwtotu == null || w.DataZwtotu == ""
                               join k in db.Klienci
                                 on w.ID_Klienta equals k.ID_Klienta
                               where k.ID_Klienta == logowanie_klient.idklient
@@ -45,10 +46,10 @@ namespace Projekt
                                 on w.ID_Filmu equals fi.ID_Filmu
                               select new
                               {
+                                  fi.ID_Filmu,
                                   fi.Tytul,
                                   fi.Gatunek,
-                                  w.DataWypozyczenia,
-                                  w.DataZwtotu
+                                  w.DataWypozyczenia
                               };
             this.filmy.ItemsSource = film.ToList();
             this.wypożyczenia.ItemsSource = wypozycznia.ToList();
@@ -101,12 +102,58 @@ namespace Projekt
 
                         var user = db.Filmy.Where(u => u.ID_Filmu == id).FirstOrDefault();
                         user.Stan = "W drodze";
-                        wyswietlanie();
                         db.SaveChanges();
+                        wyswietlanie();
                     }
                 }
                 if (!czy_dodano)
                     MessageBox.Show("Nie ma filmu o takim ID na stanie");
+            }
+            else
+            {
+                MessageBox.Show("Błędne ID");
+            }
+        }
+
+        private void Oddaj_Click(object sender, RoutedEventArgs e)
+        {
+            Wypozyczalnia_filmowEntities1 db = new Wypozyczalnia_filmowEntities1();
+            var wypozycznia = from w in db.Wypozyczenia
+                              where w.DataZwtotu == null || w.DataZwtotu == ""
+                              join k in db.Klienci
+                                on w.ID_Klienta equals k.ID_Klienta
+                              where k.ID_Klienta == logowanie_klient.idklient
+                              join fi in db.Filmy
+                                on w.ID_Filmu equals fi.ID_Filmu
+                              select new
+                              {
+                                  fi.ID_Filmu,
+                                  fi.Tytul,
+                                  fi.Gatunek,
+                                  w.DataWypozyczenia
+                              };
+            var values = wypozycznia.ToArray();
+            DateTime thisDay = DateTime.Today;
+            Random rnd = new Random();
+            bool czy_dodano = false;
+            if (int.TryParse(idfilmdooodania.Text, out int id))
+            {
+                foreach (var v in values)
+                {
+                    if (id == v.ID_Filmu)
+                    {
+                        czy_dodano = true;
+                        var user = db.Filmy.Where(u => u.ID_Filmu == id).FirstOrDefault();                       
+                        if (user.Stan == "U klienta")
+                            user.Stan = "W drodze";
+                        var wypo = db.Wypozyczenia.Where(u => u.ID_Filmu == id).FirstOrDefault();
+                        wypo.DataZwtotu = thisDay.ToString();
+                        db.SaveChanges();
+                        wyswietlanie();
+                    }
+                }
+                if (!czy_dodano)
+                    MessageBox.Show("Nie ma filmu o takim ID w twoich wypożyczeniach");
             }
             else
             {
